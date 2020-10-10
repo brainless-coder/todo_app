@@ -52,6 +52,10 @@ class LoginPage extends StatelessWidget {
                   padding: EdgeInsets.all(10.0),
                   child: TextField(
                     decoration: InputDecoration(
+                      prefixIcon: Icon(
+                        Icons.person,
+                        color: Colors.orangeAccent,
+                      ),
                       focusedBorder: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(25),
                         borderSide: BorderSide(
@@ -75,6 +79,10 @@ class LoginPage extends StatelessWidget {
                   child: TextField(
                     obscureText: true,
                     decoration: InputDecoration(
+                      prefixIcon: Icon(
+                        Icons.vpn_key,
+                        color: Colors.orangeAccent,
+                      ),
                       focusedBorder: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(25),
                         borderSide: BorderSide(
