@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:todo_ui/resetPassword.dart';
 
 class ForgotPassword extends StatelessWidget {
   @override
@@ -68,7 +69,14 @@ class ForgotPassword extends StatelessWidget {
                   ),
                   padding: EdgeInsets.symmetric(vertical: 15),
                   color: Colors.redAccent,
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => ResetPassword(),
+                      ),
+                    );
+                  },
                   child: Text(
                     'Send Request',
                     style: TextStyle(
