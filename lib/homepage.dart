@@ -169,6 +169,53 @@ class _HomePageBodyState extends State<HomePageBody> {
           )
         ],
       ),
+      bottomNavigationBar: BottomNavigationBar(
+        fixedColor: Colors.tealAccent,
+        type: BottomNavigationBarType.fixed,
+        backgroundColor: Color(0xff292e4e),
+        currentIndex: 0,
+        iconSize: 30,
+        elevation: 0,
+        unselectedItemColor: Colors.white,
+        items: [
+          BottomNavigationBarItem(
+            icon: Icon(Icons.check_circle),
+            title: Text('My Task'),
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.menu),
+            title: Text('Menu'),
+          ),
+          BottomNavigationBarItem(
+            icon: Container(
+              height: 50,
+              width: 50,
+              decoration: BoxDecoration(
+                gradient: LinearGradient(
+                    begin: Alignment.topRight,
+                    end: Alignment.bottomLeft,
+                    colors: [
+                      Color(0xfff96060),
+                      Colors.red,
+                      Colors.orangeAccent,
+                      Colors.pinkAccent
+                    ]),
+                shape: BoxShape.circle,
+              ),
+              child: Icon(Icons.add),
+            ),
+            title: Text('Add Task'),
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.content_paste),
+            title: Text('Quick Tasks'),
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.account_circle),
+            title: Text('Profile'),
+          )
+        ],
+      ),
     );
   }
 
