@@ -3,6 +3,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:table_calendar/table_calendar.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
+import 'package:todo_ui/checklist.dart';
+import 'package:todo_ui/newTask.dart';
+import 'package:todo_ui/qiockNote.dart';
 
 class HomePage extends StatelessWidget {
   @override
@@ -195,7 +198,14 @@ class _HomePageBodyState extends State<HomePageBody> {
                     mainAxisAlignment: MainAxisAlignment.spaceAround,
                     children: [
                       InkWell(
-                        onTap: () {},
+                        onTap: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => NewTask(),
+                            ),
+                          );
+                        },
                         child: Text('Add Task'),
                       ),
                       Container(
@@ -204,7 +214,14 @@ class _HomePageBodyState extends State<HomePageBody> {
                         margin: EdgeInsets.symmetric(horizontal: 40),
                       ),
                       InkWell(
-                        onTap: () {},
+                        onTap: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => QuickNote(),
+                            ),
+                          );
+                        },
                         child: Padding(
                           padding: EdgeInsets.fromLTRB(0, 18, 0, 0),
                           child: Text('Add Quick Note '),
@@ -216,7 +233,14 @@ class _HomePageBodyState extends State<HomePageBody> {
                         margin: EdgeInsets.symmetric(horizontal: 40),
                       ),
                       InkWell(
-                        onTap: () {},
+                        onTap: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => Checklist(),
+                            ),
+                          );
+                        },
                         child: Padding(
                           padding: EdgeInsets.fromLTRB(0, 18, 0, 0),
                           child: Text('Add Checklist'),
