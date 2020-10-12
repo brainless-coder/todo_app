@@ -1,4 +1,6 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 import 'package:table_calendar/table_calendar.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
 
@@ -21,6 +23,7 @@ class HomePageBody extends StatefulWidget {
 
 class _HomePageBodyState extends State<HomePageBody> {
   String filterType = "today";
+  int index = 0;
   CalendarController _calendarController = new CalendarController();
   DateTime today = DateTime.now();
   var monthNames = [
@@ -159,8 +162,9 @@ class _HomePageBodyState extends State<HomePageBody> {
                         ),
                       ),
                       taskWidget(Color(0xfff96060), "Going out", "10:00 AM"),
-                      taskWidget(Colors.teal, "Going out", "10:00 AM"),
-                      taskWidget(Colors.blueAccent, "Going out", "10:00 AM"),
+                      taskWidget(Colors.teal, "Lunch", "12:00 AM"),
+                      taskWidget(
+                          Colors.blueAccent, "Meeting Someone", "4:00 PM"),
                     ],
                   ),
                 ),
@@ -173,10 +177,58 @@ class _HomePageBodyState extends State<HomePageBody> {
         fixedColor: Colors.tealAccent,
         type: BottomNavigationBarType.fixed,
         backgroundColor: Color(0xff292e4e),
-        currentIndex: 0,
+        currentIndex: index,
         iconSize: 30,
         elevation: 0,
         unselectedItemColor: Colors.white,
+        onTap: (int index) {
+          setState(() {
+            this.index = index;
+          });
+
+          if (index == 2) {
+            showDialog<void>(
+              context: context,
+              builder: (BuildContext context) {
+                return AlertDialog(
+                  title: Column(
+                    mainAxisAlignment: MainAxisAlignment.spaceAround,
+                    children: [
+                      InkWell(
+                        onTap: () {},
+                        child: Text('Add Task'),
+                      ),
+                      Container(
+                        height: 2,
+                        color: Colors.black.withOpacity(0.2),
+                        margin: EdgeInsets.symmetric(horizontal: 40),
+                      ),
+                      InkWell(
+                        onTap: () {},
+                        child: Padding(
+                          padding: EdgeInsets.fromLTRB(0, 18, 0, 0),
+                          child: Text('Add Quick Note '),
+                        ),
+                      ),
+                      Container(
+                        height: 2,
+                        color: Colors.black.withOpacity(0.2),
+                        margin: EdgeInsets.symmetric(horizontal: 40),
+                      ),
+                      InkWell(
+                        onTap: () {},
+                        child: Padding(
+                          padding: EdgeInsets.fromLTRB(0, 18, 0, 0),
+                          child: Text('Add Checklist'),
+                        ),
+                      ),
+                    ],
+                  ),
+                );
+              },
+            );
+          }
+        },
         items: [
           BottomNavigationBarItem(
             icon: Icon(Icons.check_circle),
@@ -188,7 +240,7 @@ class _HomePageBodyState extends State<HomePageBody> {
           ),
           BottomNavigationBarItem(
             icon: Container(
-              height: 50,
+              height: 43,
               width: 50,
               decoration: BoxDecoration(
                 gradient: LinearGradient(
@@ -202,7 +254,10 @@ class _HomePageBodyState extends State<HomePageBody> {
                     ]),
                 shape: BoxShape.circle,
               ),
-              child: Icon(Icons.add),
+              child: Icon(
+                Icons.add,
+                size: 33,
+              ),
             ),
             title: Text('Add Task'),
           ),
