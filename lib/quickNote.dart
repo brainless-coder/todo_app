@@ -1,14 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:todo_ui/homepage.dart';
 
-class CheckList extends StatefulWidget {
-  @override
-  _CheckListState createState() => _CheckListState();
-}
-
-class _CheckListState extends State<CheckList> {
-  List<int> selectedList = [];
-
+class QuickNote extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -39,7 +32,7 @@ class _CheckListState extends State<CheckList> {
             ),
             backgroundColor: Color(0xfff96060),
             title: Text(
-              'New CheckList',
+              'New Note',
               style: TextStyle(fontSize: 25),
             ),
           ),
@@ -77,70 +70,53 @@ class _CheckListState extends State<CheckList> {
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               Text(
-                                'Title',
+                                'Description',
                                 style: TextStyle(fontSize: 18),
                               ),
                               SizedBox(height: 10),
-                              Text(
-                                'Lorem Ispum',
-                                style: TextStyle(fontSize: 18),
-                              ),
-                              SizedBox(height: 20),
-                              CheckboxListTile(
-                                title: Text(
-                                  "List Item 1",
+                              Container(
+                                height: 150,
+                                decoration: BoxDecoration(
+                                  color: Colors.white,
+                                  border: Border.all(
+                                    color: Colors.grey.withOpacity(0.5),
+                                  ),
+                                  borderRadius: BorderRadius.only(
+                                    topLeft: Radius.circular(15),
+                                    topRight: Radius.circular(15),
+                                  ),
+                                ),
+                                child: TextField(
+                                  maxLines: 6,
+                                  decoration: InputDecoration(
+                                    border: InputBorder.none,
+                                    hintText: "Add description here",
+                                  ),
                                   style: TextStyle(fontSize: 18),
                                 ),
-                                controlAffinity:
-                                    ListTileControlAffinity.leading,
-                                value: selectedList.contains(1),
-                                onChanged: (bool value) {
-                                  setState(() {
-                                    if (value) {
-                                      selectedList.add(1);
-                                    } else {
-                                      selectedList.remove(1);
-                                    }
-                                  });
-                                },
                               ),
-                              CheckboxListTile(
-                                title: Text(
-                                  "List Item 2",
-                                  style: TextStyle(fontSize: 18),
+                              Container(
+                                height: 50,
+                                width: double.infinity,
+                                decoration: BoxDecoration(
+                                  color: Colors.grey.withOpacity(0.2),
+                                  border: Border.all(
+                                    color: Colors.grey.withOpacity(0.5),
+                                  ),
+                                  borderRadius: BorderRadius.only(
+                                    bottomLeft: Radius.circular(15),
+                                    bottomRight: Radius.circular(15),
+                                  ),
                                 ),
-                                controlAffinity:
-                                    ListTileControlAffinity.leading,
-                                value: selectedList.contains(2),
-                                onChanged: (bool value) {
-                                  setState(() {
-                                    if (value) {
-                                      selectedList.add(2);
-                                    } else {
-                                      selectedList.remove(2);
-                                    }
-                                  });
-                                },
-                              ),
-                              CheckboxListTile(
-                                title: Text(
-                                  "List Item 3",
-                                  style: TextStyle(fontSize: 18),
+                                child: IconButton(
+                                  alignment: Alignment.centerLeft,
+                                  onPressed: () {},
+                                  icon: Icon(
+                                    Icons.attach_file,
+                                  ),
                                 ),
-                                controlAffinity:
-                                    ListTileControlAffinity.leading,
-                                value: selectedList.contains(3),
-                                onChanged: (bool value) {
-                                  setState(() {
-                                    if (value) {
-                                      selectedList.add(3);
-                                    } else {
-                                      selectedList.remove(3);
-                                    }
-                                  });
-                                },
                               ),
-                              SizedBox(height: 15),
+                              SizedBox(height: 25),
                               Text(
                                 'Color',
                                 style: TextStyle(fontSize: 18),
@@ -207,9 +183,9 @@ class _CheckListState extends State<CheckList> {
                                     borderRadius: BorderRadius.circular(20),
                                   ),
                                   child: Text(
-                                    'Add CheckList',
+                                    'Add Note',
                                     style: TextStyle(
-                                      fontSize: 20,
+                                      fontSize: 18,
                                       color: Colors.white,
                                     ),
                                   ),

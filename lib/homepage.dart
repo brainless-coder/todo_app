@@ -5,7 +5,7 @@ import 'package:table_calendar/table_calendar.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
 import 'package:todo_ui/checklist.dart';
 import 'package:todo_ui/newTask.dart';
-import 'package:todo_ui/qiockNote.dart';
+import 'package:todo_ui/quickNote.dart';
 
 class HomePage extends StatelessWidget {
   @override
@@ -237,7 +237,7 @@ class _HomePageBodyState extends State<HomePageBody> {
                           Navigator.push(
                             context,
                             MaterialPageRoute(
-                              builder: (context) => Checklist(),
+                              builder: (context) => CheckList(),
                             ),
                           );
                         },
@@ -362,7 +362,7 @@ class _HomePageBodyState extends State<HomePageBody> {
           ],
         ),
       ),
-      secondaryActions: [
+      actions: [
         IconSlideAction(
           onTap: () {},
           caption: "Edit",
@@ -370,6 +370,8 @@ class _HomePageBodyState extends State<HomePageBody> {
           icon: Icons.edit,
           foregroundColor: Colors.blueAccent,
         ),
+      ],
+      secondaryActions: [
         IconSlideAction(
           onTap: () {},
           caption: 'Delete',
